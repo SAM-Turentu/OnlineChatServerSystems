@@ -15,7 +15,7 @@ from tornado.options import define, options, parse_command_line
 from colorama import init
 
 from Config import Config
-from UI import URLManagements
+from UI import URLManagements, Mapper
 
 define('port', default=8080, type=int)
 # logging.basicConfig(level=logging.INFO)
@@ -31,6 +31,7 @@ def main():
         init(autoreset=True)  # windows 控制台颜色输出
         parse_command_line()
         logging.info(f'服务已启动，地址：127.0.0.1:{options.port}')
+        Mapper.MapperList()
         app = tornado.web.Application(
             handlers=URLManagements.handlers_urls,
             **Config.settings

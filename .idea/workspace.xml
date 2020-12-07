@@ -3,9 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="784d03fc-2101-454e-a1ec-8eebc0f572ff" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Infrastructure/DI/Meta.py" beforeDir="false" afterPath="$PROJECT_DIR$/Infrastructure/DI/Meta.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Main.py" beforeDir="false" afterPath="$PROJECT_DIR$/Main.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/Controllers/HomeController.py" beforeDir="false" afterPath="$PROJECT_DIR$/UI/Controllers/HomeController.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/Handlers.py" beforeDir="false" afterPath="$PROJECT_DIR$/UI/URLManagements.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -16,15 +15,51 @@
   <component name="CoverageDataManager">
     <SUITE FILE_PATH="coverage/OnlineChatServerSystems$sam_server.coverage" NAME="sam_server Coverage Results" MODIFIED="1607311868478" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/OnlineChatServerSystems$Main.coverage" NAME="Main Coverage Results" MODIFIED="1607069524107" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/OnlineChatServerSystems$Meta.coverage" NAME="Meta Coverage Results" MODIFIED="1607329280520" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Infrastructure/DI" />
     <SUITE FILE_PATH="coverage/OnlineChatServerSystems$sam.coverage" NAME="sam Coverage Results" MODIFIED="1607311872064" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Main.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="575">
+              <caret line="33" column="21" selection-start-line="33" selection-start-column="21" selection-end-line="33" selection-end-column="21" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Infrastructure/DI/Meta.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="708">
-              <caret line="31" selection-start-line="31" selection-end-line="31" />
+            <state relative-caret-position="536">
+              <caret line="49" column="21" selection-start-line="49" selection-start-column="6" selection-end-line="49" selection-end-column="21" />
+              <folding>
+                <element signature="e#129#380#0" />
+                <element signature="e#712#937#0" />
+                <element signature="e#1669#1952#0" />
+                <element signature="e#1705#1733#0" />
+                <element signature="e#1746#1785#0" />
+                <element signature="e#2122#2361#0" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/UI/Mapper.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="100">
+              <caret line="4" column="14" selection-start-line="4" selection-start-column="14" selection-end-line="4" selection-end-column="14" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/UI/Services/AccountService.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="525">
+              <caret line="21" lean-forward="true" selection-start-line="21" selection-end-line="21" />
             </state>
           </provider>
         </entry>
@@ -55,8 +90,10 @@
         <option value="$PROJECT_DIR$/sam_server.py" />
         <option value="$PROJECT_DIR$/UI/Controllers/AccountController.py" />
         <option value="$PROJECT_DIR$/UI/URLManagements.py" />
-        <option value="$PROJECT_DIR$/Main.py" />
         <option value="$PROJECT_DIR$/Infrastructure/DI/Meta.py" />
+        <option value="$PROJECT_DIR$/UI/Mapper.py" />
+        <option value="$PROJECT_DIR$/Main.py" />
+        <option value="$PROJECT_DIR$/UI/Services/AccountService.py" />
       </list>
     </option>
   </component>
@@ -109,6 +146,12 @@
               <item name="UI" type="462c0819:PsiDirectoryNode" />
               <item name="Controllers" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="OnlineChatServerSystems" type="b2602c69:ProjectViewProjectNode" />
+              <item name="OnlineChatServerSystems" type="462c0819:PsiDirectoryNode" />
+              <item name="UI" type="462c0819:PsiDirectoryNode" />
+              <item name="Services" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
@@ -133,7 +176,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.sam">
+  <component name="RunManager" selected="Python.Meta">
     <configuration name="Main" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="OnlineChatServerSystems" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -148,6 +191,28 @@
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Main.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="Meta" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="OnlineChatServerSystems" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/Infrastructure/DI" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Infrastructure/DI/Meta.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -202,6 +267,7 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.Meta" />
         <item itemvalue="Python.sam" />
         <item itemvalue="Python.sam_server" />
         <item itemvalue="Python.Main" />
@@ -219,12 +285,12 @@
       <option name="presentableId" value="Default" />
       <updated>1607065541452</updated>
       <workItem from="1607065556713" duration="6699000" />
-      <workItem from="1607304711256" duration="9153000" />
+      <workItem from="1607304711256" duration="18908000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="15852000" />
+    <option name="totallyTimeSpent" value="25607000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="902" y="4" width="1453" height="1042" extended-state="0" />
@@ -233,7 +299,7 @@
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.19454415" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.24935289" />
       <window_info id="Favorites" order="2" side_tool="true" weight="0.22260569" />
-      <window_info anchor="bottom" id="Debug" order="0" sideWeight="0.4906367" weight="0.34471366" />
+      <window_info anchor="bottom" id="Debug" order="0" sideWeight="0.4906367" weight="0.38828632" />
       <window_info anchor="bottom" id="Statistic" order="1" weight="0.329718" />
       <window_info anchor="bottom" id="Message" order="2" />
       <window_info anchor="bottom" id="Find" order="3" weight="0.32929516" />
@@ -246,7 +312,7 @@
       <window_info anchor="bottom" id="Database Changes" order="10" />
       <window_info anchor="bottom" id="Event Log" order="11" sideWeight="0.5053305" side_tool="true" weight="0.32378855" />
       <window_info anchor="bottom" id="Terminal" order="12" sideWeight="0.4946695" weight="0.324295" />
-      <window_info anchor="bottom" id="Python Console" order="13" weight="0.30477223" />
+      <window_info anchor="bottom" id="Python Console" order="13" weight="0.5249458" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -358,17 +424,39 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Main.py">
+    <entry file="file://$PROJECT_DIR$/Infrastructure/DI/Meta.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="175">
-          <caret line="7" selection-start-line="7" selection-end-line="7" />
+        <state relative-caret-position="536">
+          <caret line="49" column="21" selection-start-line="49" selection-start-column="6" selection-end-line="49" selection-end-column="21" />
+          <folding>
+            <element signature="e#129#380#0" />
+            <element signature="e#712#937#0" />
+            <element signature="e#1669#1952#0" />
+            <element signature="e#1705#1733#0" />
+            <element signature="e#1746#1785#0" />
+            <element signature="e#2122#2361#0" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Infrastructure/DI/Meta.py">
+    <entry file="file://$PROJECT_DIR$/Main.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="708">
-          <caret line="31" selection-start-line="31" selection-end-line="31" />
+        <state relative-caret-position="575">
+          <caret line="33" column="21" selection-start-line="33" selection-start-column="21" selection-end-line="33" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/UI/Mapper.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="100">
+          <caret line="4" column="14" selection-start-line="4" selection-start-column="14" selection-end-line="4" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/UI/Services/AccountService.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="525">
+          <caret line="21" lean-forward="true" selection-start-line="21" selection-end-line="21" />
         </state>
       </provider>
     </entry>
