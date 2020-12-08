@@ -5,6 +5,9 @@
 # Summary : ''
 
 
+# 用户 一般来源于接口数据
+# 客服注册和登录,非用户
+
 from Infrastructure.Core.HttpRequest import BaseRequestHandler
 
 
@@ -15,6 +18,12 @@ class RegisterHandler(BaseRequestHandler):
         ...
 
     async def post(self):
+        ...
+
+    async def put(self):
+        ...
+
+    async def delete(self):
         ...
 
 

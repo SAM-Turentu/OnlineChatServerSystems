@@ -2,7 +2,7 @@
 # Author : 'SAM'
 # CreateTime : '2020/12/7 16:32'
 # file : 'Mapper.py'
-# Summary : ''
+# Summary : '默认使用 MapperList'
 
 
 from Infrastructure.DI.Meta import DIMapper, DIMapperList
