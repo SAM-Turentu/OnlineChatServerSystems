@@ -4,6 +4,9 @@
 # file : 'Main.py'
 # Summary : '在线聊天系统'
 
+# mysql 使用Tortoise-orm进行异步，redis使用celery异步
+# GitHub地址：https://github.com/SAM-Turentu/OnlineChatServerSystems
+# 邮箱：SAM-Turentu@outlook.com
 
 import logging
 import tornado
@@ -15,9 +18,12 @@ from tornado.options import define, options, parse_command_line
 from colorama import init
 
 from Config import Config
+from Config.MysqlConn import mysql_init
 from UI import URLManagements, Mapper
 
 define('port', default=8080, type=int)
+
+
 # logging.basicConfig(level=logging.INFO)
 # options.log_rotate_mode = 'time'  # 轮询模式: time or size
 # options.log_rotate_when = 'D'  # 单位: S / M / H / D / W0 - W6
@@ -38,6 +44,7 @@ def main():
         )
         http_server = httpserver.HTTPServer(app, xheaders=True)  #
         http_server.listen(options.port)
+        tornado.ioloop.IOLoop.current().run_sync(func=mysql_init)  # 需要手动添加Model到 mysql_init中
         tornado.ioloop.IOLoop.current().start()
     except Exception as e:
         logging.error(e)
@@ -45,4 +52,3 @@ def main():
 
 if __name__ == '__main__':
     main()
-

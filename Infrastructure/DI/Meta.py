@@ -60,45 +60,42 @@ class DIMetaClassList(type):
             for i in range(len(mapper_list)):
                 mapper[mapper_list[i][0].lower() + mapper_list[i][1:]] = mapper_dict[cls][i]
             cls.__init__(obj, **mapper)
-            print(111)
-
         else:
             cls.__init__(obj, *args, **kwargs)
         return obj
 
-
-class UserBusinessCardService(metaclass=DIMetaClassList):
-
-    def __init__(self, **kwargs):
-        # 首字母需小写
-        self.businessCardRepository = kwargs.get('businessCardRepository')
-        self.adminRepository = kwargs.get('adminRepository')
-
-    def sam(self):
-        self.businessCardRepository.sam_1()
-        self.adminRepository.sam_2()
-
-
-class BusinessCardRepository():
-
-    def sam_1(self):
-        print('sam_1')
-
-
-class AdminRepository():
-
-    def sam_2(self):
-        print('sam_2')
-
-
-def main():
-    DIMapperList.inject(UserBusinessCardService, BusinessCardRepository(), AdminRepository())
-    get_mappers = DIMapperList.get_mappers()
-    print(get_mappers)
-    userBusinessCardService = UserBusinessCardService()
-    userBusinessCardService.sam()
-    print(333)
-
-
-if __name__ == '__main__':
-    main()
+# class UserBusinessCardService(metaclass=DIMetaClassList):
+#
+#     def __init__(self, **kwargs):
+#         # 首字母需小写
+#         self.businessCardRepository = kwargs.get('businessCardRepository')
+#         self.adminRepository = kwargs.get('adminRepository')
+#
+#     def sam(self):
+#         self.businessCardRepository.sam_1()
+#         self.adminRepository.sam_2()
+#
+#
+# class BusinessCardRepository():
+#
+#     def sam_1(self):
+#         print('sam_1')
+#
+#
+# class AdminRepository():
+#
+#     def sam_2(self):
+#         print('sam_2')
+#
+#
+# def main():
+#     DIMapperList.inject(UserBusinessCardService, BusinessCardRepository(), AdminRepository())
+#     get_mappers = DIMapperList.get_mappers()
+#     print(get_mappers)
+#     userBusinessCardService = UserBusinessCardService()
+#     userBusinessCardService.sam()
+#     print(333)
+#
+#
+# if __name__ == '__main__':
+#     main()

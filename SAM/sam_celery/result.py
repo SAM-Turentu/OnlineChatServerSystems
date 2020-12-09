@@ -6,7 +6,7 @@
 
 
 from celery.result import AsyncResult
-from sam_celery.celery_app_task import app
+from SAM.sam_celery.celery_app_task import app
 
 # async_r = AsyncResult(id='e6a1d0e9-dc3b-496a-aa0f-8bfd694fcc1e', app=app)
 async_r = AsyncResult(id='048aaac9-82db-460e-9db7-19bc42978146', app=app)

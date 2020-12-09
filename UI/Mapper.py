@@ -6,11 +6,15 @@
 
 
 from Infrastructure.DI.Meta import DIMapper, DIMapperList
+from Repository.AccountRepository import AccountRepository
+from UI.Services.AccountService import AccountService
 
 
+# 未启用
 def Mapper():
     """一个 service 只能绑定一个 repository"""
-    DIMapper.inject('cls', 'arg')
+    # DIMapper.inject('service', 'repository()')
+    DIMapper.inject(AccountService, AccountRepository())
 
 
 def MapperList():
@@ -19,4 +23,4 @@ def MapperList():
     Notice: service 中 kwargs.get('accountRepository') 获取需小写
     :return:
     """
-    DIMapperList.inject('cls', 'args1', 'args2')
+    DIMapperList.inject(AccountService, AccountRepository())

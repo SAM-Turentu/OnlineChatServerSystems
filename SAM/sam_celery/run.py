@@ -4,7 +4,7 @@
 # file : 'run.py'
 # Summary : ''
 
-from sam_celery.celery_app_task import app
+from SAM.sam_celery.celery_app_task import app
 
 if __name__ == '__main__':
     app.worker_main(argv=['worker'])

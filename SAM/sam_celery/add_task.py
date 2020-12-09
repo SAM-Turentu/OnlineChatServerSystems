@@ -4,7 +4,7 @@
 # file : 'add_task.py'
 # Summary : ''
 
-from sam_celery.celery_app_task import add
+from SAM.sam_celery.celery_app_task import add
 
 result = add.delay(4, 5)
 print(result.id)

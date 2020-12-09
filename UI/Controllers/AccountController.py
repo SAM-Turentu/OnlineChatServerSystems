@@ -9,22 +9,30 @@
 # 客服注册和登录,非用户
 
 from Infrastructure.Core.HttpRequest import BaseRequestHandler
+from UI.Services.AccountService import AccountService
 
 
 class RegisterHandler(BaseRequestHandler):
     """注册"""
 
     async def get(self):
-        ...
+        try:
+            phone = self.get_argument('phone')
+            password = self.get_argument('password')
+            user_name = self.get_argument('user_name')
+            accountService = AccountService()
+            await accountService.register_user(phone, password, user_name)
+        except Exception as e:
+            print(e)
 
-    async def post(self):
-        ...
-
-    async def put(self):
-        ...
-
-    async def delete(self):
-        ...
+    # async def post(self):
+    #     ...
+    #
+    # async def put(self):
+    #     ...
+    #
+    # async def delete(self):
+    #     ...
 
 
 class LoginHandler(BaseRequestHandler):

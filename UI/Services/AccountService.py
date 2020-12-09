@@ -12,11 +12,15 @@ class AccountService(metaclass=DIMetaClassList):
 
     def __init__(self, **kwargs):
         """service 中 kwargs.get('accountRepository') 首字母需小写"""
-        self.accountRepository = kwargs.get('accountRepository')
-        self.adminRepository = kwargs.get('adminRepository')
+        self._account = kwargs.get('accountRepository')
+        # self._admin = kwargs.get('adminRepository')
 
-    def get_user_info(self):
+    async def get_user_info(self):
         ...
 
-    def add_new_user(self):
-        ...
+    async def register_user(self, phone, password, user_name):
+        """注册用户"""
+        try:
+            await self._account.add_new_user(phone, password, user_name)
+        except Exception as e:
+            print(e)
