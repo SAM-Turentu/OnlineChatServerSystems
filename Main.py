@@ -8,6 +8,7 @@
 # GitHub地址：https://github.com/SAM-Turentu/OnlineChatServerSystems
 # 邮箱：SAM-Turentu@outlook.com
 
+
 import logging
 import tornado
 import tornado.web
@@ -51,4 +52,5 @@ def main():
 
 
 if __name__ == '__main__':
+    # asyncio.get_event_loop().run_until_complete(SessionFactory.get_session_obj(''))
     main()

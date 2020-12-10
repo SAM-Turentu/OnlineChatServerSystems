@@ -63,5 +63,8 @@ else:  # company环境配置
         pwd = 'shenyancha!!!.'
 
 settings = {
-
+    'cookie_secret': '@SAM&Chat_Server_Systems_V1.0',  # cookie秘钥
+    'login_url': '/login',
 }
+
+SESSION_TYPE = 'redis'  # redis, cache

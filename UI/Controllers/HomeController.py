@@ -6,14 +6,15 @@
 
 
 import tornado.web
-
+from Infrastructure.Core.HttpRequest import BaseRequestHandler
 from Model.Account.AccountModel import user_save
 
 
-class HomeHandler(tornado.web.RequestHandler):
+class HomeHandler(BaseRequestHandler):
 
     async def get(self):
-        await user_save()  # 数据层
+        await self.session.sam_test_asnyc()
+        # await user_save()  # 数据层
         self.write('Hello world! -- SAM')
 
 # 获取客户端Mac地址,BS项目无法获取
