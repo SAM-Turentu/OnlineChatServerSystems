@@ -12,7 +12,7 @@ class Admin(Model):
     id = fields.IntField(pk=True, autoincrement=True)
 
     class Meta:
-        table = 'admin'
+        table = 'admins_sam'
 
 
 class AdminModel:

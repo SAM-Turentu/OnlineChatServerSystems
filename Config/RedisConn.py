@@ -34,3 +34,4 @@ class select_redis_db(object):
 
     async def redis_test_3(self):
         return await AsyncRedisConn(3)
+

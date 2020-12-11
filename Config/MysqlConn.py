@@ -28,6 +28,7 @@ def MysqlConn():
 
 async def mysql_init():
     try:
+
         await Tortoise.init(
             db_url=f'mysql://{Config.mysql_config.user}:{Config.mysql_config.pwd}@{Config.mysql_config.host}:{Config.mysql_config.port}/{Config.mysql_config.db}',
             modules={'models': [
@@ -35,6 +36,6 @@ async def mysql_init():
                 'Model.Admin.AdminModel',
             ]}
         )
-        await Tortoise.generate_schemas()
+        # await Tortoise.generate_schemas(safe=True)  # safe设置为true时，仅在表不存在时才创建。
     except Exception as e:
         print(e)

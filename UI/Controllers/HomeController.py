@@ -14,7 +14,7 @@ class HomeHandler(BaseRequestHandler):
 
     async def get(self):
         await self.session.sam_test_asnyc()
-        # await user_save()  # 数据层
+        await user_save()  # 数据层
         self.write('Hello world! -- SAM')
 
 # 获取客户端Mac地址,BS项目无法获取
