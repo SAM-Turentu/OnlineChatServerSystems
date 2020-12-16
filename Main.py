@@ -35,8 +35,8 @@ define('port', default=8080, type=int)
 
 def main():
     try:
-        init(autoreset=True)  # windows 控制台颜色输出
-        parse_command_line()
+        init(autoreset=True)  # windows 控制台颜色
+        parse_command_line()  # 控制台打印
         logging.info(f'服务已启动，地址：127.0.0.1:{options.port}')
         Mapper.MapperList()
         app = tornado.web.Application(

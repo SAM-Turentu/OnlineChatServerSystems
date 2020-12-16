@@ -9,11 +9,11 @@ from tortoise import Tortoise
 from Config import Config
 
 
-def MysqlConn():
-    ...
-    # engine = create_engine(f"mysql+pymysql://{Config.mysql_config.get('user')}:{Config.mysql_config.get('pwd')}@{Config.mysql_config.get('host')}:"
-    #                        f"{Config.mysql_config.get('port')}/{Config.mysql_config.get('db')}", max_overflow=5)
-    # return engine
+# def MysqlConn():
+#     ...
+#     engine = create_engine(f"mysql+pymysql://{Config.mysql_config.get('user')}:{Config.mysql_config.get('pwd')}@{Config.mysql_config.get('host')}:"
+#                            f"{Config.mysql_config.get('port')}/{Config.mysql_config.get('db')}", max_overflow=5)
+#     return engine
 
 
 # loop = asyncio.get_event_loop()
