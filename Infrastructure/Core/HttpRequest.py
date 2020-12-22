@@ -14,6 +14,9 @@ from Infrastructure.Utils.Session.SessionFactory import SessionFactory
 
 class BaseRequestHandler(RequestHandler):
 
+    # def data_received(self, chunk):
+    #     pass
+
     def initialize(self):
         self.session = SessionFactory.get_session_obj(self)  # 异步redis
 

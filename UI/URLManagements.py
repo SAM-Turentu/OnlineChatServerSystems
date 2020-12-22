@@ -7,7 +7,8 @@ from UI.Controllers.AccountController import *
 from UI.Controllers.HomeController import *
 
 handlers_urls = [
+    # (r'/(\w+)', HomeHandler),  #
     (r'/', HomeHandler),  #
     (r'/register', RegisterHandler),  # 客服系统的注册
-    (r'/login', RegisterHandler),  # 客服系统的登录
+    # (r'/login', RegisterHandler),  # 客服系统的登录
 ]

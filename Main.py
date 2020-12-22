@@ -17,7 +17,6 @@ import tornado.options
 from tornado import httpserver
 from tornado.options import define, options, parse_command_line
 from colorama import init
-
 from Config import Config
 from Config.MysqlConn import mysql_init
 from UI import URLManagements, Mapper

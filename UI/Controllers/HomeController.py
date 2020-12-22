@@ -5,7 +5,7 @@
 # Summary : ''
 
 
-import tornado.web
+import logging
 from Infrastructure.Core.HttpRequest import BaseRequestHandler
 from Model.Account.AccountModel import user_save
 
@@ -13,9 +13,13 @@ from Model.Account.AccountModel import user_save
 class HomeHandler(BaseRequestHandler):
 
     async def get(self):
-        await self.session.sam_test_asnyc()
-        await user_save()  # 数据层
-        self.write('Hello world! -- SAM')
+        try:
+            userId = self.get_query_argument('userId')
+            await self.session.sam_test_asnyc()
+            await user_save()  # 数据层
+            self.write({'userId': userId, 'userName': 'sam'})
+        except Exception as e:
+            logging.error(e)
 
 # 获取客户端Mac地址,BS项目无法获取
 # def get_owner_mac():

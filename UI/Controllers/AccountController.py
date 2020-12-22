@@ -7,8 +7,12 @@
 
 # 用户 一般来源于接口数据
 # 客服注册和登录,非用户
+import datetime
+import logging
+import uuid
 
 from Infrastructure.Core.HttpRequest import BaseRequestHandler
+from Infrastructure.Utils.Security.Token import Token
 from UI.Services.AccountService import AccountService
 
 
@@ -20,10 +24,15 @@ class RegisterHandler(BaseRequestHandler):
             phone = self.get_argument('phone')
             password = self.get_argument('password')
             user_name = self.get_argument('user_name')
+            loginTime = datetime.datetime.utcnow()
+            userId = uuid.uuid4()
             accountService = AccountService()
             await accountService.register_user(phone, password, user_name)
+            user_info = {'userId': userId, 'level': 1, 'loginTime': loginTime, 'userName': user_name, 'phone': phone}
+            token = Token.create_token(user_info=user_info)  # 创建token
+            return self.write(token)
         except Exception as e:
-            print(e)
+            logging.error(e)
 
     # async def post(self):
     #     ...
@@ -39,10 +48,16 @@ class LoginHandler(BaseRequestHandler):
     """登录"""
 
     async def get(self):
-        ...
+        try:
+            ...
+        except Exception as e:
+            logging.error(e)
 
     async def post(self):
-        ...
+        try:
+            ...
+        except Exception as e:
+            logging.error(e)
 
 
 class LogoutHandler(BaseRequestHandler):

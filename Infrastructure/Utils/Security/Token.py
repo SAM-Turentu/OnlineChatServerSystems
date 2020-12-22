@@ -6,8 +6,11 @@
 
 
 import base64
+import datetime
 import hmac
 import time
+
+import jwt
 
 
 async def generate_token(key, expire_day):
@@ -24,8 +27,7 @@ async def certify_token(key, token):
     token_list = token_str.split(':')
     if len(token_list) != 2:
         # token 无效
-        raise ValueError
-        # return False
+        return False
     time_str = token_list[0]
     if float(time_str) < time.time():
         # 超时
@@ -37,3 +39,27 @@ async def certify_token(key, token):
         # 验证失败
         return False
     return True
+
+
+class Token(object):
+
+    @staticmethod
+    def create_token(user_info=None):
+        if user_info is None:
+            user_info = {'userId': '123', 'level': 1, 'loginTime': '', 'userName': 'test', 'phone': '13100000000'}
+        try:
+            payload = {
+                'exp': datetime.datetime.utcnow() + datetime.timedelta(days=7),  # 7天过期
+                'iat': datetime.datetime.utcnow(),  # 发行时间
+                'data': user_info,  # user info
+            }
+            return str(jwt.encode(payload, 'key', algorithm='HS256'), 'utf-8')
+        except Exception as e:
+            print(e)
+
+    @staticmethod
+    def verify_bearer_token(token):
+        payload = jwt.decode(token, 'key', algorithms=['HS256'])
+        if payload:
+            return payload
+        return False
