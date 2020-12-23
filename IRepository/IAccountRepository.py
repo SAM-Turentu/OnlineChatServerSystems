@@ -7,8 +7,11 @@
 
 class IAccountRepository:
 
-    async def get_user(self, user_id):
+    async def get_user_by_userId(self, user_id):
         ...
 
-    async def add_new_user(self, phone, password, user_name):
+    async def get_user_by_phone(self, phone):
+        ...
+
+    async def add_new_user(self, user_id, phone, area_code):
         ...

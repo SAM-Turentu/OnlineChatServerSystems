@@ -36,6 +36,6 @@ async def mysql_init():
                 'Model.Admin.AdminModel',
             ]}
         )
-        # await Tortoise.generate_schemas(safe=True)  # safe设置为true时，仅在表不存在时才创建。
+        # await Tortoise.generate_schemas()  # safe设置为true时，仅在表不存在时才创建。
     except Exception as e:
         print(e)

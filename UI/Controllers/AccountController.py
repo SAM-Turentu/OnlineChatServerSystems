@@ -5,13 +5,17 @@
 # Summary : ''
 
 
+# 注册应该单独一个微服务
 # 用户 一般来源于接口数据
 # 客服注册和登录,非用户
+
+
 import datetime
 import logging
 import uuid
 
 from Infrastructure.Core.HttpRequest import BaseRequestHandler
+from Infrastructure.Utils.ResponseComm import ReturnResponse
 from Infrastructure.Utils.Security.Token import Token
 from UI.Services.AccountService import AccountService
 
@@ -20,19 +24,23 @@ class RegisterHandler(BaseRequestHandler):
     """注册"""
 
     async def get(self):
+        returnResponse = ReturnResponse(self)
         try:
             phone = self.get_argument('phone')
-            password = self.get_argument('password')
-            user_name = self.get_argument('user_name')
+            sms_code = self.get_argument('sms_code')
+            # 使用手机验证码登录并注册，登录注册合并为一个接口
             loginTime = datetime.datetime.utcnow()
-            userId = uuid.uuid4()
+            user_id = uuid.uuid4()
+
             accountService = AccountService()
-            await accountService.register_user(phone, password, user_name)
-            user_info = {'userId': userId, 'level': 1, 'loginTime': loginTime, 'userName': user_name, 'phone': phone}
+            await accountService.register_user(phone, 'password', 'user_name')
+            user_info = {'user_id': user_id, 'level': 1, 'loginTime': loginTime, 'userName': 'user_name', 'phone': phone}
             token = Token.create_token(user_info=user_info)  # 创建token
-            return self.write(token)
+            returnResponse.ret_success(data={'token': token}, message='')
+            # return self.write(token)
         except Exception as e:
             logging.error(e)
+            returnResponse.ret_exception(e)
 
     # async def post(self):
     #     ...
@@ -44,14 +52,63 @@ class RegisterHandler(BaseRequestHandler):
     #     ...
 
 
+class Register_LoginHandler(BaseRequestHandler):
+    """使用手机验证码登录并注册，登录注册合并为一个接口"""
+
+    async def get(self):
+        returnResponse = ReturnResponse(self)
+        try:
+            phone = self.get_argument('phone')
+            sms_code = self.get_argument('sms_code')
+            area_code = self.get_argument('area_code', None)  # area_code 验证
+            area_code = '86' if area_code is None or area_code == '' else area_code
+            loginTime = datetime.datetime.utcnow()
+
+            accountService = AccountService()
+
+            if sms_code:
+                """对比短信验证码"""
+                ...
+
+            """查询该用户是否已注册"""
+            user_info = await accountService.get_user_info(phone=phone)
+            if user_info:  # 创建token
+                # 更新loginTime
+                user_id = user_info.user_id
+                user_info = {'user_id': user_id, 'level': 1, 'loginTime': loginTime, 'userName': 'user_name', 'phone': phone}
+                token = Token.create_token(user_info=user_info)  # 创建token
+
+            else:  # 添加新用户，并创建token
+                user_id = uuid.uuid4()
+                # user_id, phone, area_code
+                await accountService.register_user(user_id, phone, area_code)
+
+                user_info = {'user_id': user_id, 'level': 1, 'loginTime': loginTime, 'userName': 'user_name', 'phone': phone}
+                token = Token.create_token(user_info=user_info)  # 创建token
+            returnResponse.ret_success(data={'token': token})
+        except Exception as e:
+            logging.error(e)
+            returnResponse.ret_exception(e)
+
+
 class LoginHandler(BaseRequestHandler):
     """登录"""
 
     async def get(self):
+        returnResponse = ReturnResponse(self)
         try:
-            ...
+            phone = self.get_argument('phone')
+            password = self.get_argument('pw')
+            user_name = self.get_argument('user_name')
+            loginTime = datetime.datetime.utcnow()
+            user_id = uuid.uuid4()
+
+            user_info = {'user_id': user_id, 'level': 1, 'loginTime': loginTime, 'userName': user_name, 'phone': phone}
+            token = Token.create_token(user_info=user_info)  # 创建token
+            returnResponse.ret_success(data={'token': token}, message='')
         except Exception as e:
             logging.error(e)
+            returnResponse.ret_exception(e)
 
     async def post(self):
         try:

@@ -11,12 +11,12 @@ from Model.Account.AccountModel import Account
 
 class AccountRepository(IAccountRepository):
 
-    async def get_user(self, user_id):
-        ...
+    async def get_user_by_userId(self, user_id):
+        return await Account.get(user_id=user_id)
 
-    async def add_new_user(self, phone, password, user_name):
+    async def get_user_by_phone(self, phone):
+        return await Account.get(phone=phone)
+
+    async def add_new_user(self, user_id, phone, area_code):
         """注册用户"""
-        try:
-            await Account.create(user_id=phone, user_name=user_name, status=1)
-        except Exception as e:
-            print(e)
+        await Account.create(user_id=user_id, phone=phone, area_code=area_code, status=1)
