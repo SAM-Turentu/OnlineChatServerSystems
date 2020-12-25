@@ -39,8 +39,7 @@ class RegisterHandler(BaseRequestHandler):
             returnResponse.ret_success(data={'token': token}, message='')
             # return self.write(token)
         except Exception as e:
-            logging.error(e)
-            returnResponse.ret_exception(e)
+            returnResponse.ret_exception(exception=e, message='')
 
     # async def post(self):
     #     ...
@@ -53,14 +52,15 @@ class RegisterHandler(BaseRequestHandler):
 
 
 class Register_LoginHandler(BaseRequestHandler):
-    """使用手机验证码登录并注册，登录注册合并为一个接口"""
+    """使用手机验证码登录/注册，登录/注册合并为一个接口"""
 
-    async def get(self):
+    async def post(self):
         returnResponse = ReturnResponse(self)
+        """使用弹框登录/注册"""
         try:
-            phone = self.get_argument('phone')
-            sms_code = self.get_argument('sms_code')
-            area_code = self.get_argument('area_code', None)  # area_code 验证
+            phone = self.get_body_argument('phone')
+            sms_code = self.get_body_argument('sms_code')
+            area_code = self.get_body_argument('area_code', None)  # area_code 验证
             area_code = '86' if area_code is None or area_code == '' else area_code
             loginTime = datetime.datetime.utcnow()
 
@@ -87,8 +87,7 @@ class Register_LoginHandler(BaseRequestHandler):
                 token = Token.create_token(user_info=user_info)  # 创建token
             returnResponse.ret_success(data={'token': token})
         except Exception as e:
-            logging.error(e)
-            returnResponse.ret_exception(e)
+            returnResponse.ret_exception(exception=e, message='服务异常，请稍后重试!')
 
 
 class LoginHandler(BaseRequestHandler):

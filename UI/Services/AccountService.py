@@ -26,3 +26,9 @@ class AccountService(metaclass=DIMetaClassList):
     async def register_user(self, user_id, phone, area_code):
         """注册用户"""
         await self.__account.add_new_user(user_id, phone, area_code)
+
+    @staticmethod
+    async def sms_code_equal_redis_code(phone, sms_code) -> bool:
+        if sms_code == 999999:
+            return True
+        return False

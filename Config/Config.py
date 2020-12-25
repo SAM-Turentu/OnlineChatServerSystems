@@ -68,3 +68,4 @@ settings = {
 }
 
 SESSION_TYPE = 'redis'  # redis, cache
+EXPIRE_TIME = 7 * 60 * 60 * 24  # 7天
