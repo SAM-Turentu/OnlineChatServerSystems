@@ -6,16 +6,74 @@
 
 
 import logging
+import time
+import traceback
+
 from Infrastructure.Core.HttpRequest import BaseRequestHandler
 from Infrastructure.Utils.RedisImpl import RedisStringImpl
 from Infrastructure.Utils.ResponseComm import ReturnResponse
 from Model.Account.AccountModel import user_save
 
 
+# def exception_collection(self):
+#     print(123)
+#     return 'asdf'
+
+
+# def catch_exception(func):
+#     def wrapper(self, *args, **kwargs):
+#         try:
+#             u = func(self, *args, **kwargs)
+#             return u
+#         except:
+#             print(234)
+#             error = traceback.format_exc()
+#             t = time.time()
+#             print(f'{t}\n{error}')
+#
+#     return wrapper
+
+
+# def catch_exception(origin_func):
+#     def wrapper(self, *args, **kwargs):
+#         try:
+#             u = origin_func(self, *args, **kwargs)
+#             return u
+#         except Exception:
+#             self.revive() #不用顾虑，直接调用原来的类的方法
+#             return 'an Exception raised.'
+#     return wrapper
+
+
+# class Test(object):
+#     def __init__(self):
+#         pass
+#
+#     def revive(self):
+#         print('revive from exception.')
+#         # do something to restore
+#
+#     @catch_exception
+#     def read_value(self):
+#         print('here I will do something.')
+#         raise ValueError
+#         # do something.
+#
+#
+# if __name__ == '__main__':
+#     te = Test()
+#     te.read_value()
+
+
 class HomeHandler(BaseRequestHandler):
 
+    # @exception_collection
+    # @catch_exception
     async def get(self):
         returnResponse = ReturnResponse(self)
+        # # returnResponse.ret_success(data={'userId': 'a123456', 'userName': 'sam'})
+        # a = 12 / 0
+        # return self.write(a)
         try:
             redis = RedisStringImpl()
             await redis.set_item('key', 'value')

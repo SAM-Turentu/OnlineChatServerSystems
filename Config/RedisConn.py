@@ -11,6 +11,7 @@ import asyncio
 from Config import Config
 
 
+# 暂未使用
 async def AsyncRedisConn(db=0):
     try:
         # conn = await aioredis.create_connection(address=f'redis://{Config.redis_config.host}:{Config.redis_config.port}', db=db, password=Config.redis_config.pwd)
