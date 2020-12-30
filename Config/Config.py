@@ -27,6 +27,15 @@ if config == 'sam':  # ainiruoxia 环境配置
         user = ''
         pw = ''
 
+
+    class kafka:
+        host = '192.168.1.141'
+        port = 9092
+
+
+    class zookeeper:
+        host = '192.168.1.141'
+        port = 2181
 elif config == 'online':  # 正式环境配置
     class mysql_config:
         host = '192.168.1.10'
@@ -48,6 +57,15 @@ elif config == 'online':  # 正式环境配置
         user = ''
         pw = ''
 
+
+    class kafka:
+        host = '192.168.1.141'
+        port = 9092
+
+
+    class zookeeper:
+        host = '192.168.1.141'
+        port = 2181
 elif config == 'test':  # 测试环境配置
     class mysql_config:
         host = '192.168.1.10'
@@ -69,6 +87,15 @@ elif config == 'test':  # 测试环境配置
         user = ''
         pw = ''
 
+
+    class kafka:
+        host = '192.168.1.141'
+        port = 9092
+
+
+    class zookeeper:
+        host = '192.168.1.141'
+        port = 2181
 else:  # company环境配置
     class mysql_config:
         host = '192.168.1.10'
@@ -89,6 +116,16 @@ else:  # company环境配置
         port = 9200
         user = ''
         pw = ''
+
+
+    class kafka:
+        host = '192.168.1.141'
+        port = 9092
+
+
+    class zookeeper:
+        host = '192.168.1.141'
+        port = 2181
 
 settings = {
     'cookie_secret': '@SAM&Chat_Server_Systems_V1.0',  # cookie秘钥
